@@ -1,0 +1,19 @@
+{
+    "builds": [
+      {
+        "src": "malware_site/wsgi.py",
+        "use": "@vercel/python",
+        "config": {
+          "maxLambdaSize": "15mb",
+          "runtime": "python3.9"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "malware_site/wsgi.py"
+      }
+    ]
+  }
+  

@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scan Result</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <script src="{% static 'js/upload.js' %}" defer></script>
+</head>
+<body>
+<body>
+  <h2>Scan Results for: {{ filename }}</h2>
+  <p><strong>MD5:</strong> {{ md5 }}</p>
+  <p><strong>SHA256:</strong> {{ sha256 }}</p>
+  <p><strong>Entropy:</strong> {{ entropy }}</p>
+  <p><strong>Suspicious Strings:</strong></p>
+  <ul>
+    {% for s in suspicious %}
+      <li>{{ s }}</li>
+    {% endfor %}
+  </ul>
+  <h3 style="color: cyan;">🛡️ Verdict: {{ verdict }}</h3>
+</body>
+</html>
